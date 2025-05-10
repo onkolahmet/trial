@@ -11,5 +11,4 @@ transformers==4.30.2
 torch>=1.7.1
 langdetect==1.0.9
 pytest==7.4.3
-pytest-cov==4.1.0
 httpx==0.25.1
