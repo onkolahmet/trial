@@ -46,5 +46,10 @@ print_header "Running API tests"
 # Run API tests
 python -m pytest tests/test_apis.py -v
 
+print_header "Running coverage report"
+
+# Run all tests with coverage
+python -m pytest --cov=src tests/ --cov-report=term-missing
+
 echo ""
 echo "Tests completed successfully!"
