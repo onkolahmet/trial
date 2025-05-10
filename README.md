@@ -15,6 +15,7 @@ This repository contains the implementation of the Deel AI Python Engineer Chall
   - [Task 3: Production Considerations](#task-3-production-considerations)
 - [Architecture Overview](#architecture-overview)
 - [Methodology and Design Choices](#methodology-and-design-choices)
+- [Unit Tests](#unit-tests)
 - [Limitations and Future Improvements](#limitations-and-future-improvements)
 - [Conclusion](#conclusion)
 
@@ -50,9 +51,14 @@ deel-ai-challenge/
 │   └── services/              # Business logic services
 │       ├── matching.py        # User matching implementation (Task 1)
 │       └── semantic_search.py # Semantic search implementation (Task 2)
+├── tests/                     # Unit and integration tests
+│   ├── conftest.py            # Test fixtures and configuration
+│   ├── test_apis.py           # API integration tests
+│   └── test_services.py       # Service unit tests
 ├── main.py                    # Main entry point
 ├── requirements.txt           # Python dependencies
 ├── run.sh                     # Setup and execution script
+├── run_tests.sh               # Test execution script
 └── README.md                  # This documentation
 ```
 
@@ -377,6 +383,37 @@ This separation of concerns enhances maintainability and allows for independent 
 - **Factory Pattern**: Used for creating API instances in `app.py`
 - **Facade Pattern**: The API endpoints provide a simplified interface to the complex subsystems
 
+## Unit Tests
+
+The project includes a comprehensive set of unit and integration tests to ensure the correctness of the implementation:
+
+### Test Coverage
+
+- **Service Unit Tests**: Tests for core business logic components:
+  - `UserMatcher`: Tests name extraction, text normalization, and matching algorithms
+  - `SemanticSearchEngine`: Tests preprocessing, embedding generation, and similarity calculations
+  - `DataLoader`: Tests data loading and retrieval operations
+
+- **API Integration Tests**: Tests for API endpoints and their integration with services:
+  - Transaction-User matching endpoint
+  - Semantic search endpoint
+  - Transactions with users endpoint
+
+### Running Tests
+
+To run the tests, use the provided test script:
+
+```bash
+chmod +x run_tests.sh
+./run_tests.sh
+```
+
+This script will:
+- Set up the test environment
+- Run unit tests for services
+- Run integration tests for APIs
+- Report test results
+
 ## Limitations and Future Improvements
 
 ### Current Limitations
@@ -397,7 +434,7 @@ This separation of concerns enhances maintainability and allows for independent 
 ### Future Improvements
 
 1. **Short-term improvements**:
-   - Add comprehensive unit and integration tests
+   - Improve unit and integration tests
    - Implement basic authentication
    - Add more data validation and edge case handling
    - Enhance documentation with more examples
