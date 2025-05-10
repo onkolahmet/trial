@@ -434,7 +434,7 @@ This script will:
 ### Future Improvements
 
 1. **Short-term improvements**:
-   - Improve unit and integration tests
+   - Expand unit and integration tests
    - Implement basic authentication
    - Add more data validation and edge case handling
    - Enhance documentation with more examples
